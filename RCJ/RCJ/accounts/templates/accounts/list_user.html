@@ -1,0 +1,23 @@
+
+<a href=>back to home</a><br>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <a href="{% url 'accounts:cadastro-usuario'%}">add</a>
+    {% for b in user_list %}
+    <tr>
+      <td>{{ b.username }}</td>
+      <td>{{ b.name }}</td>
+      <td>
+        <a href="{% url 'accounts:editar-usuario' b.slug %}">edit</a>
+        <a href="{% url 'accounts:deletar-usuario' b.slug %}">delete</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
